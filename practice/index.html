@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<htlm>
+
+
+<head>
+    <style>
+        body{
+            font-family: arial,Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #a4dee9;
+        }
+        h1{
+            padding: 20px 20px;
+            background-color: blue;
+            color:rgb(187, 73, 73);
+            border-radius:2px;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: yellow;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: yellowgreen;
+            color: blueviolet;
+        }
+        p{
+            color: rgb(23, 25, 141);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="sub-color">mera color change </p>
+    <h1 id="myHeading">lets try to Click me</h1>
+    <button onclick="changeText()">click me</button>
+<script>
+    function changeText(){
+        document.getElementById("myHeading").innerText= "Congrats the text is changed "
+        document.getElementById("sub-color").innerText= "yes it works"
+    }
+    
+</script>
+</body>
+
+</htlm>

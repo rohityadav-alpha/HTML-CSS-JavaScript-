@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Registration Form</title>
+</head>
+<body>
+    <form action="home.html" method="post">
+        <h1>University Registration form </h1><br>
+
+        <label>First name:</label>
+        <input type="text" placeholder="First name" name="first_name" required><br><br>
+
+        <label>Last name:</label>
+        <input type="text" placeholder="Last name" name="last_name" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Email" name="Email" required><br><br>
+
+        <label>Password:</label>
+        <input type="password" placeholder="Password" name="Password" required><br><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" placeholder="Confirm Password" name="confirm_password" required><br><br>
+
+        <label>Phone number:</label>
+        <input type="tel" placeholder="Phone number" name="phone" required><br><br>
+
+        <label>Gender:</label>
+        <select id="gender" name="gender" required>
+           <option value="">--Select--</option>
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+           <option value="other">Other</option>
+        </select><br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required><br><br>
+
+        <label>Address:</label>
+        <input type="text" placeholder="Address" name="address" required><br><br>
+
+        <label>Country:</label>
+        <input type="text" placeholder="Country" name="country" required><br><br>
+
+        <label>State:</label>
+        <input type="text" placeholder="State" name="state" required><br><br>
+
+        <label>City:</label>
+        <input type="text" placeholder="City" name="city" required><br><br>
+
+        <label>Zip/Pin code:</label>
+        <input type="text" placeholder="Zip code" name="zip_code" required><br><br>
+
+        <label>Course:</label>
+        <select id="courses" name="courses" required>
+            <option value="">---select---</option>
+            <option value="btech">b.Tech</option>
+            <option value="bscit">B.Sc(IT)</option>
+            <option value="bca">BCA</option>   
+        </select>
+        
+        <label>10th passing year:</label>
+        <input type="number" placeholder="Year of passing" name="tenth_passing_year" required><br><br>
+
+        <label>10th percentage:</label>
+        <input type="number" placeholder="Percentage" name="tenth_percentage" required><br><br>
+
+        <label>12th passing year:</label>
+        <input type="number" placeholder="Year of passing" name="twelfth_passing_year" required><br><br>
+        
+        <label>12th percentage:</label>
+        <input type="number" placeholder="Percentage" name="twelfth_percentage" required><br><br>
+
+        <label>In House:</label>
+        <label>Are you an in-house student?</label>
+        <input type="checkbox" name="in_house" required><br><br>
+
+        <label>Upload your photo:</label>
+        <input type="file" name="photo" accept="image/*" required><br><br>
+
+        <label>Terms and Conditions:</label>
+        <input type="checkbox" name="terms" required> I agree with the terms and conditions<br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+</html>
