@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f6f9;
+    }
+    table {
+      width: 100%;
+      max-width: 500px;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 14px;
+      text-align: left;
+    }th {
+      background-color: #007bff;
+      color: white;
+    }
+    .pass {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+        </style>
+    </head>
+    <body>
+        <h1>Data of the student</h1>
+        <button onclick="DataLoad()" > load data</button>
+        <button onclick="PassedData()">passed </button>
+        <button onclick="FailData()">Failed </button>
+        <br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Markes</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+        <script>
+            const Alldata =[
+                {subject:"maths",marks:59},
+                {subject:"science",marks:97},
+                {subject:"physics",marks:32},
+                {subject:"History",marks:26},
+                {subject:"Geography",marks:30},
+                {subject:"biology",marks:79}
+            ];
+
+            function DataLoad(){
+                const tbody  = document.getElementById("table-body");
+
+                tbody.innerHTML="";
+
+                for (let i=0;i<Alldata.length;i++){
+                    const item=Alldata[i];
+
+                    let statusclass="Pass";
+                    let statustext="pass";
+
+                    if (item.marks<35){
+                        statusclass="Fail";
+                        statustext="fail";
+                    }
+
+                    const row=`<tr>
+                                <td>${item.subject}</td>
+                                <td>${item.marks}</td>
+                                <td class="${statusclass}">${statustext}</td>
+                               </tr>`;
+
+                    tbody.innerHTML+=row;
+                }
+            }
+
+            function PassedData(){
+                const tbody = document.getElementById("table-body");
+
+                tbody.innerHTML="";
+
+                for (let i=0;i<Alldata.length;i++){
+                    const item = Alldata[i];
+                    const status="pass";
+                    const row=`<tr>
+                                    <td>${item.subject}</td>
+                                    <td>${item.marks}</td>
+                                    <td>${status}</td>
+                                </tr>`;
+                    if (item.marks>=35){
+                        tbody.innerHTML+=row;
+                    }
+                }
+                
+            }
+
+            function FailData(){
+                const tbody= document.getElementById("table-body");
+                tbody.innerHTML="";
+                for (let i=0;i<Alldata.length;i++){
+                    const obj=Alldata[i];
+                    const status="pass";
+                    const row=`<tr>
+                                    <td>${obj.subject}</td>
+                                    <td>${obj.marks}</td>
+                                    <td>${obj.status}</td>
+                                </tr>`;
+                    if (obj.marks<=34){
+                        tbody.innerHTML+=row;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
