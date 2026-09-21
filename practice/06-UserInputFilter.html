@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f6f9;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      max-width: 500px;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>ALL Data</h1>
+    <br>
+    <input type="text" id="input-value" placeholder="type to search data" oninput="filterBY()">
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+    <script>
+        const AllData =[
+                {subject:"maths",marks:59},
+                {subject:"science",marks:97},
+                {subject:"physics",marks:32},
+                {subject:"History",marks:26},
+                {subject:"Geography",marks:30},
+                {subject:"biology",marks:79}
+            ];
+
+        renderData(AllData);
+
+        function renderData(Data){
+            const tbody=document.getElementById("table-body");
+            tbody.innerHTML="";
+            
+            for(let i=0;i<Data.length;i++){
+                const item=Data[i];
+                const ispass=item.marks>=35;
+                const status=ispass?"Pass":"Fail";
+                const row = `<tr>
+                              <td>${item.subject}</td>
+                              <td>${item.marks}</td>
+                              <td>${status}</td>
+                            </tr>`;
+                tbody.innerHTML+=row;
+            }
+        }
+
+        function filterBY(){
+            const word=document.getElementById("input-value").value.toLowerCase();
+
+            const filteredData=[];
+
+            for(let i=0;i<AllData.length;i++){
+                const item=AllData[i];
+                const sub=item.subject.toLowerCase();
+                if(sub.includes(word)){
+                    filteredData.push(item);
+                }
+            }
+            renderData(filteredData);
+        }
+    </script>
+</body>
+</html>
