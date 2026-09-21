@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f6f9;
+    }
+    table {
+      width: 100%;
+      max-width: 500px;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 14px;
+      text-align: left;
+    }th {
+      background-color: #007bff;
+      color: white;
+    }
+    .pass {
+      color: green;
+      font-weight: bold;
+    }
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+        </style>
+    </head>
+    <body>
+        <h1>Data of the student</h1>
+        <button onclick="DataLoad('All')" > load data</button>
+        <button onclick="DataLoad('Pass')">passed </button>
+        <button onclick="DataLoad('Fail')">Failed </button>
+        <br>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Markes</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+        <script>
+            const Alldata =[
+                {subject:"maths",marks:59},
+                {subject:"science",marks:97},
+                {subject:"physics",marks:32},
+                {subject:"History",marks:26},
+                {subject:"Geography",marks:30},
+                {subject:"biology",marks:79}
+            ];
+            //solution 1
+            // function DataLoad(filter){
+            //     const tbody=document.getElementById("table-body");
+
+            //     tbody.innerHTML=""
+
+            //     for(let i=0;i<Alldata.length;i++){
+            //         const item=Alldata[i];
+            //         const ispass=item.marks>=35;
+            //         const status=ispass?"Pass":"Fail";
+            //         const statusclass=ispass?"Pass":"Fail";
+            //         const row=`<tr>
+            //                     <td>${item.subject}</td>
+            //                     <td>${item.marks}</td>
+            //                     <td class="${statusclass}">${status}</td>
+            //                    </tr>`;
+                    
+            //         if (filter==="All"){
+            //             tbody.innerHTML+=row;
+            //         }
+            //         if(filter==="Pass" && ispass){
+            //             tbody.innerHTML+=row;
+            //         }
+            //         if(filter==="Fail" && !ispass){
+            //             tbody.innerHTML+=row;
+            //         }
+            //     }
+
+            // }
+            //solution 2
+            function DataLoad(filterType) {
+                const tbody = document.getElementById("table-body");
+                tbody.innerHTML = "";
+              
+                for (let i = 0; i < Alldata.length; i++) {
+                  const item = Alldata[i];
+                  const isPass = item.marks >= 35;
+              
+                  // Filter check
+                  if (filterType === "Pass" && !isPass) continue;
+                  if (filterType === "Fail" && isPass) continue;
+              
+                  const statusClass = isPass ? "Pass" : "Fail"; //turnary operators ka use kiya hai 
+                  const statusText = isPass ? "Pass" : "Fail";
+              
+                  tbody.innerHTML += `<tr>
+                    <td>${item.subject}</td>
+                    <td>${item.marks}</td>
+                    <td class="${statusClass}">${statusText}</td>
+                  </tr>`;
+                }
+            }
+        </script>
+    </body>
+</html>
